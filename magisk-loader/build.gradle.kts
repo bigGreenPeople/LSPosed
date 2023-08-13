@@ -27,16 +27,17 @@ plugins {
     alias(libs.plugins.agp.app)
     alias(libs.plugins.lsplugin.resopt)
 }
-
+// 声明模块的基本信息
 val moduleName = "LSPosed"
 val moduleBaseId = "lsposed"
 val authors = "LSPosed Developers"
-
+// Riru 模块信息
 val riruModuleId = "lsposed"
 val moduleMinRiruApiVersion = 26
 val moduleMinRiruVersionName = "26.1.7"
 val moduleMaxRiruApiVersion = 26
 
+// 从根项目的 extra 配置中读取一些信息
 val injectedPackageName: String by rootProject.extra
 val injectedPackageUid: Int by rootProject.extra
 
@@ -77,7 +78,7 @@ android {
             path("src/main/jni/CMakeLists.txt")
         }
     }
-
+    //创建两个风味Variant
     productFlavors {
         all {
             externalNativeBuild {
@@ -121,7 +122,7 @@ dependencies {
     compileOnly(libs.androidx.annotation)
     compileOnly(projects.hiddenapi.stubs)
 }
-
+//先声明
 val zipAll = task("zipAll") {
     group = "LSPosed"
 }
